@@ -65,21 +65,31 @@ def configure_page() -> None:
     st.markdown(
         """
         <style>
-        .stApp { background: #f8fafc; color: #111827; }
-        .reportview-container .main { background-color: #f8fafc; }
-        .card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 18px; padding: 22px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
-        .metric-card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 18px; padding: 18px; }
-        .kpi-big { font-size: 2.8rem; font-weight: 700; margin: 0; color: #111827; }
-        .kpi-label { color: #334155; font-size: 0.95rem; margin: 0 0 10px; }
-        .metric-value { font-size: 1.5rem; font-weight: 600; color: #111827; }
-        .progress-container { background: #cbd5e1; border-radius: 999px; overflow: hidden; height: 20px; }
-        .progress-bar { background: linear-gradient(90deg, #0f172a, #1e293b); height: 100%; color: #ffffff; text-align: right; padding-right: 12px; font-weight: 700; line-height: 20px; }
-        .status-pill { display: inline-block; border-radius: 999px; padding: 6px 12px; font-size: 0.85rem; font-weight: 600; color: #0f172a; background: #e2e8f0; margin: 2px 4px 4px 0; }
-        .pill-green { background: #dcfce7; color: #065f46; }
-        .pill-yellow { background: #fde68a; color: #92400e; }
-        .pill-red { background: #fecdd3; color: #991b1b; }
-        .small-label { color: #334155; font-size: 0.9rem; }
-        .metric-help { color: #475569; font-size: 0.8rem; margin-top: 3px; }
+        body, .stApp, .reportview-container .main, .block-container, .element-container, .main, .css-1y0tads, .css-1d391kg, .css-1v0mbdj, .css-1n76uvr, .css-1avcm0n, .css-16bsx9e, .css-hxt7ib {
+            background-color: #f8fafc !important;
+            color: #111827 !important;
+        }
+        .stApp { background: #f8fafc !important; color: #111827 !important; }
+        .reportview-container .main { background-color: #f8fafc !important; }
+        .css-1gkcyyc, .css-1d391kg, .css-1avcm0n, .css-16bsx9e, .css-hxt7ib, .stMarkdown, .stText {
+            color: #111827 !important;
+        }
+        .card { background: #ffffff !important; border: 1px solid #cbd5e1 !important; border-radius: 18px; padding: 22px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
+        .metric-card { background: #ffffff !important; border: 1px solid #cbd5e1 !important; border-radius: 18px; padding: 18px; }
+        p, span, h1, h2, h3, h4, h5, h6, label, button, a, div {
+            color: #111827 !important;
+        }
+        .kpi-big { font-size: 2.8rem; font-weight: 700; margin: 0; color: #111827 !important; }
+        .kpi-label { color: #334155 !important; font-size: 0.95rem; margin: 0 0 10px; }
+        .metric-value { font-size: 1.5rem; font-weight: 600; color: #111827 !important; }
+        .progress-container { background: #cbd5e1 !important; border-radius: 999px; overflow: hidden; height: 20px; }
+        .progress-bar { background: linear-gradient(90deg, #0f172a, #1e293b) !important; height: 100%; color: #ffffff !important; text-align: right; padding-right: 12px; font-weight: 700; line-height: 20px; }
+        .status-pill { display: inline-block; border-radius: 999px; padding: 6px 12px; font-size: 0.85rem; font-weight: 600; color: #0f172a !important; background: #e2e8f0 !important; margin: 2px 4px 4px 0; }
+        .pill-green { background: #dcfce7 !important; color: #065f46 !important; }
+        .pill-yellow { background: #fde68a !important; color: #92400e !important; }
+        .pill-red { background: #fecdd3 !important; color: #991b1b !important; }
+        .small-label { color: #334155 !important; font-size: 0.9rem; }
+        .metric-help { color: #475569 !important; font-size: 0.8rem; margin-top: 3px; }
         </style>
         """,
         unsafe_allow_html=True,
