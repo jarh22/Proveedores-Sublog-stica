@@ -1,0 +1,43 @@
+# Streamlit secrets (datos sensibles)
+.streamlit/secrets.toml
+.streamlit/secrets.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Ambiente local
+.env
+.env.local
+
+# Scripts de debug (temporales)
+debug_*.py
+tmp_*.py
+test_*.py
+check_*.py
+inspect_*.py
+
+# Archivos temporales
+*.xlsx
+*.csv
+*.tmp
