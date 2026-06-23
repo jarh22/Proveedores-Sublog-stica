@@ -65,21 +65,21 @@ def configure_page() -> None:
     st.markdown(
         """
         <style>
-        .stApp { background: #F4F7FC; color: #0f172a; }
+        .stApp { background: #f8fafc; color: #111827; }
         .reportview-container .main { background-color: #f8fafc; }
-        .card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 22px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06); }
-        .metric-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 18px; }
-        .kpi-big { font-size: 2.8rem; font-weight: 700; margin: 0; color: #0f172a; }
-        .kpi-label { color: #475569; font-size: 0.95rem; margin: 0 0 10px; }
-        .metric-value { font-size: 1.5rem; font-weight: 600; color: #0f172a; }
-        .progress-container { background: #e2e8f0; border-radius: 999px; overflow: hidden; height: 20px; }
-        .progress-bar { background: linear-gradient(90deg, #fb923c, #f97316); height: 100%; color: #ffffff; text-align: right; padding-right: 12px; font-weight: 700; line-height: 20px; }
+        .card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 18px; padding: 22px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
+        .metric-card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 18px; padding: 18px; }
+        .kpi-big { font-size: 2.8rem; font-weight: 700; margin: 0; color: #111827; }
+        .kpi-label { color: #334155; font-size: 0.95rem; margin: 0 0 10px; }
+        .metric-value { font-size: 1.5rem; font-weight: 600; color: #111827; }
+        .progress-container { background: #cbd5e1; border-radius: 999px; overflow: hidden; height: 20px; }
+        .progress-bar { background: linear-gradient(90deg, #0f172a, #1e293b); height: 100%; color: #ffffff; text-align: right; padding-right: 12px; font-weight: 700; line-height: 20px; }
         .status-pill { display: inline-block; border-radius: 999px; padding: 6px 12px; font-size: 0.85rem; font-weight: 600; color: #0f172a; background: #e2e8f0; margin: 2px 4px 4px 0; }
-        .pill-green { background: #dcfce7; color: #166534; }
-        .pill-yellow { background: #fef9c3; color: #713f12; }
-        .pill-red { background: #fee2e2; color: #991b1b; }
-        .small-label { color: #667085; font-size: 0.9rem; }
-        .metric-help { color: #94a3b8; font-size: 0.8rem; margin-top: 3px; }
+        .pill-green { background: #dcfce7; color: #065f46; }
+        .pill-yellow { background: #fde68a; color: #92400e; }
+        .pill-red { background: #fecdd3; color: #991b1b; }
+        .small-label { color: #334155; font-size: 0.9rem; }
+        .metric-help { color: #475569; font-size: 0.8rem; margin-top: 3px; }
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
         .viewerBadge_container__1QSob {display: none !important;}
@@ -404,11 +404,16 @@ def build_execution_donut(totals: Dict[str, object]) -> Optional[go.Figure]:
         values=[executed, remaining],
         hole=0.52,
         title="Ejecución vs pendiente",
-        color_discrete_sequence=["#f97316", "#94a3b8"],
+        color_discrete_sequence=["#0f172a", "#0ea5e9"],
         height=360,
     )
     fig.update_traces(textinfo="percent+value", textposition="inside", textfont_size=14)
-    fig.update_layout(margin=dict(l=0, r=0, t=40, b=0), plot_bgcolor="#f8fafc", paper_bgcolor="#f8fafc")
+    fig.update_layout(
+        margin=dict(l=0, r=0, t=40, b=0),
+        plot_bgcolor="#ffffff",
+        paper_bgcolor="#ffffff",
+        font=dict(color="#111827")
+    )
     return fig
 
 
@@ -428,18 +433,19 @@ def build_monthly_chart(payments_df: pd.DataFrame) -> Optional[go.Figure]:
         x=monthly["Mes"].dt.strftime("%b %Y"),
         y="Monto",
         labels={"Monto": "Monto Pagado", "Mes": "Mes"},
-        color_discrete_sequence=["#f97316"],
+        color_discrete_sequence=["#0f172a"],
         text_auto=".2s",
         height=360,
     )
-    fig.update_traces(textposition="outside", cliponaxis=False)
+    fig.update_traces(textposition="outside", cliponaxis=False, marker_line_color="#0f172a", marker_line_width=1)
     fig.update_layout(
         margin=dict(l=0, r=0, t=30, b=0),
-        plot_bgcolor="#f8fafc",
-        paper_bgcolor="#f8fafc",
+        plot_bgcolor="#ffffff",
+        paper_bgcolor="#ffffff",
+        font=dict(color="#111827"),
         xaxis_tickangle=-45,
     )
-    fig.update_yaxes(tickprefix="$", separatethousands=True)
+    fig.update_yaxes(tickprefix="$", separatethousands=True, color="#111827")
     return fig
 
 
@@ -464,9 +470,15 @@ def build_status_chart(payments_df: pd.DataFrame, status_cols: List[str]) -> Opt
         color="Estado",
         title="Estados de pago por columna",
         text_auto=".2s",
+        color_discrete_sequence=["#0f172a", "#0ea5e9", "#f97316", "#ef4444"],
         height=380,
     )
-    fig.update_layout(margin=dict(l=0, r=0, t=40, b=0), plot_bgcolor="#f8fafc", paper_bgcolor="#f8fafc")
+    fig.update_layout(
+        margin=dict(l=0, r=0, t=40, b=0),
+        plot_bgcolor="#ffffff",
+        paper_bgcolor="#ffffff",
+        font=dict(color="#111827")
+    )
     fig.update_traces(textposition="outside", cliponaxis=False)
     return fig
 
@@ -585,10 +597,16 @@ def show_consolidado_dashboard(sheet_url: str, sheet_name: str) -> None:
             color='Tipo',
             barmode='group',
             title='Top 10 contratos por valor y pagos',
+            color_discrete_sequence=['#0f172a', '#0ea5e9'],
             height=420,
         )
-        fig.update_layout(margin=dict(l=0, r=0, t=40, b=120), plot_bgcolor='#ffffff', paper_bgcolor='#ffffff')
-        fig.update_yaxes(tickprefix='$', separatethousands=True)
+        fig.update_layout(
+            margin=dict(l=0, r=0, t=40, b=120),
+            plot_bgcolor='#ffffff',
+            paper_bgcolor='#ffffff',
+            font=dict(color='#111827')
+        )
+        fig.update_yaxes(tickprefix='$', separatethousands=True, color='#111827')
         st.plotly_chart(fig, use_container_width=True)
 
     st.markdown("<div class='card' style='margin-top:20px;'>", unsafe_allow_html=True)
