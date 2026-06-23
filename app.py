@@ -80,10 +80,6 @@ def configure_page() -> None:
         .pill-red { background: #fecdd3; color: #991b1b; }
         .small-label { color: #334155; font-size: 0.9rem; }
         .metric-help { color: #475569; font-size: 0.8rem; margin-top: 3px; }
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        .viewerBadge_container__1QSob {display: none !important;}
-        header {visibility: hidden;}
         </style>
         """,
         unsafe_allow_html=True,
