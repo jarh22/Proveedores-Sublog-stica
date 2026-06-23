@@ -65,20 +65,25 @@ def configure_page() -> None:
     st.markdown(
         """
         <style>
-        body, .stApp, .reportview-container .main, .block-container, .element-container, .main, .css-1y0tads, .css-1d391kg, .css-1v0mbdj, .css-1n76uvr, .css-1avcm0n, .css-16bsx9e, .css-hxt7ib {
+        html[data-theme="system"] body,
+        html[data-theme="dark"] body,
+        html[data-theme="system"] .stApp,
+        html[data-theme="dark"] .stApp,
+        html[data-theme="system"] .block-container,
+        html[data-theme="dark"] .block-container,
+        html[data-theme="system"] .reportview-container .main,
+        html[data-theme="dark"] .reportview-container .main {
             background-color: #f8fafc !important;
             color: #111827 !important;
         }
-        .stApp { background: #f8fafc !important; color: #111827 !important; }
-        .reportview-container .main { background-color: #f8fafc !important; }
-        .css-1gkcyyc, .css-1d391kg, .css-1avcm0n, .css-16bsx9e, .css-hxt7ib, .stMarkdown, .stText {
+        html[data-theme="system"] .stMarkdown,
+        html[data-theme="dark"] .stMarkdown,
+        html[data-theme="system"] .stText,
+        html[data-theme="dark"] .stText {
             color: #111827 !important;
         }
         .card { background: #ffffff !important; border: 1px solid #cbd5e1 !important; border-radius: 18px; padding: 22px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
         .metric-card { background: #ffffff !important; border: 1px solid #cbd5e1 !important; border-radius: 18px; padding: 18px; }
-        p, span, h1, h2, h3, h4, h5, h6, label, button, a, div {
-            color: #111827 !important;
-        }
         .kpi-big { font-size: 2.8rem; font-weight: 700; margin: 0; color: #111827 !important; }
         .kpi-label { color: #334155 !important; font-size: 0.95rem; margin: 0 0 10px; }
         .metric-value { font-size: 1.5rem; font-weight: 600; color: #111827 !important; }
